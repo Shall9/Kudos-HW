@@ -1,0 +1,23 @@
+{
+  "name": "kudos-hw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shall9/Kudos-HW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shall9/Kudos-HW/issues"
+  },
+  "homepage": "https://github.com/Shall9/Kudos-HW#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.15"
+  }
+}
