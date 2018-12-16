@@ -27,34 +27,4 @@ module.exports = function (app) {
             }).catch(function (err) {
                 res.json(err);
             });
-    })
-    app.post('/api/kudos', function (req, res) {
-        Kudos.create({
-            title: req.body.title,
-            sender_name: req.body.sender_name,
-            receiver_name: req.body.receiver_name,
-            body: req.body.body
-        })
-            .then(function (data) {
-                return Users.update({
-                    $or:
-                        [{ _id: req.body.getter_id }, { _id: req.body.sender_id }]
-                },
-                    {
-                        $push: {
-                            kudos: data._id
-                        }
-
-                    }
-                )
-            })
-            .then(function (data) {
-                console.log(data)
-                res.json(data)
-            })
-            .catch(function (err) {
-                res.json(err);
-            })
-    }
-    )
 }
