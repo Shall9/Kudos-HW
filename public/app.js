@@ -22,5 +22,13 @@ const render = function (kudo) {
           render(kudo[0].user)
       })
   }
-    const 
+    const kudo = function(event) {
+        event.preventDefault();
+
+        $('#newkudo').val('');
+        $.post('/api/kudo', {newKudo: title, to, from, body})
+        .then(function(newkudo){
+            getkudo()
+        })
+    }
 }
