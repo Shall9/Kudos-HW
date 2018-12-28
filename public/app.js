@@ -6,32 +6,21 @@
 // once all forms are filled out, and create kudo in modal button is clicked, close modal, send new kudo to the database and re-render our list including newest Kudo.
 
 
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-span.onclick = function() {
-    modal.style.display = "none";
-}
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+const render = function (kudo) {
+    $('#kudo').empty();
+    for (let i = 0; i < kudo.length; i++){
+        $('#kudo').append(`<p>${kudo[i].body}</p>`)
     }
-}
+  
+  const getkudo = function(){
+      const user = sessionStorage.getkudo();
+      console.log(user);
 
-var modal3 = document.getElementById('myModal3');
-var signup = document.getElementById("signUp");
-var span3 = document.getElementsByClassName("close3")[0];
-signup.onclick = function() {
-    modal3.style.display = "block";
-}
-span3.onclick = function() {
-    modal3.style.display = "none";
-}
-window.onclick = function(event) {
-    if (event.target == modal3) {
-        modal3.style.display = "none";
-    }
+      $.get(`/kudo/${kudo[i]}`)
+      .then(function(kudo){
+          console.log(kudo);
+          render(kudo[0].user)
+      })
+  }
+    const 
 }
